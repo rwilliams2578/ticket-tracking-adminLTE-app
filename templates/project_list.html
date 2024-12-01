@@ -14,7 +14,7 @@ All projects available in the system.
 
 {% block breadcrumbs %}
 <ol class="breadcrumbs">
-  <li><i class"fa fa-dashboard"></i> Home
+  <li><i class="fa fa-dashboard"></i> Home
 </ol>
 {% endblock breadcrumbs %}
 
@@ -35,9 +35,40 @@ All projects available in the system.
       <div class="box-body">
         <div class="row">
           <div class="col-md-3">
-            <a href="" class="btn btn-primary btn-block">View Project Details</a>
+            <a href="{% url "project_detail" project.pk %}" class="btn btn-primary btn-block">View Project Details</a>
             <br>
-            <a href="" class="btn btn-info btn-block">Update Project Details</a>
+            <a href="{% url "project_update" project.pk %}" class="btn btn-info btn-block">Update Project Details</a>
+          </div>
+          <div class="col-md-3">
+            <div class="info-box>"
+              <span class="info-box-icon bg-blue"><i class="fa fa-ticket"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">Open Tickets</span>
+                <span class="info-box-number">{{ project.open_tickets.count }}</span>
+              </div>
+            </div>
+         </div>
+
+         <div class="col-md-3">
+          <div class="info-box>"
+            <span class="info-box-icon bg-purple"><i class="fa fa-ticket"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Closed Tickets</span>
+              <span class="info-box-number">{{ project.closed_tickets.count }}</span>
+            </div>
+          </div>
+       </div>
+
+       <div class="col-md-3">
+        <div class="info-box>"
+          <span class="info-box-icon bg-aqua"><i class="fa fa-user"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Members</span>
+            <span class="info-box-number">{{ project.members.count }}</span>
+          </div>
+        </div>
+        </div>
+
         </div>
       </div>
     </div>

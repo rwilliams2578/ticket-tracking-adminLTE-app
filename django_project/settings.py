@@ -126,14 +126,38 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Set the redirect after login
-LOGIN_REDIRECT_URL = "adminlte2_pdq:home"
+LOGIN_REDIRECT_URL = "project_list"
 
 # Ensure that all users must be logged in to be able to use the site
 ADMINLTE2_USE_LOGIN_REQUIRED = True
-
+ADMINLTE2_HOME_ROUTE = "project_list"
 ADMINLTE2_LOGO_TEXT = "Ticket Tracking"
 ADMINLTE2_LOGO_TEXT_SMALL = "TT"
 
 ADMINLTE2_INCLUDE_ADMIN_HOME_LINK = True
 ADMINLTE2_INCLUDE_MAIN_NAV_ON_ADMIN_PAGES = True
 ADMINLTE2_INCLUDE_ADMIN_NAV_ON_MAIN_PAGES = True
+
+# AdminLTE2 Menu
+ADMINLTE2_MENU = [
+    {
+        "text": "Home",
+        "nodes": [
+            {
+                "route": "project_list",
+                "text": "projects",
+                "icon": "fa fa-archive",
+            },
+        ],
+    },
+    {
+        "text": "profile",
+        "nodes": [
+            {
+                "route": "password_change",
+                "text": "Change Password",
+                "icon": "fa fa-lock",
+            },
+        ],
+    },
+]
