@@ -1,0 +1,24 @@
+{% if tickets.exists %}
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Assigned to</th>
+      <th>Complete By</th>
+      <th class="text-right">Actions</th>
+    </tr>
+    {% for ticket in tickets.all %}
+      <tr>
+        <td>{{ ticket.name }}</td>
+        <td>{{ ticket.assigned_to.username }}</td>
+        <td>{{ ticket.complete_by }}</td>
+        <td class="text-right">
+          <a href="{% url "ticket_update" project.pk ticket.pk %}" class="btn btn-primary">
+            <i class="fa fa-pencil"></i> Update
+          </a>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% else %}
+  <h3>No Tickets For This Priority Level</h3>
+{% endif %}

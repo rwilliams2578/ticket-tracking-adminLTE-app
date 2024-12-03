@@ -1,19 +1,47 @@
 {% extends "adminlte2/base.html" %}
 
 {% block title %}
+{{ project.name }}
 {% endblock title %}
 
 {% block page_name %}
+{{ project.name }}
 {% endblock page_name %}
 
 {% block page_description %}
 {% endblock page_description %}
 
 {% block breadcrumbs %}
-<ol class="breadcrumbs">
-  <li><i class"fa fa-dashboard"></i> Home
+<ol class="breadcrumb">
+  <li>
+    <a href="{% url "project_list" %}">
+      <i class"fa fa-dashboard"></i> Home
+    </a>
+  </li>
+  <li>
+    <a href="{% url "project_list" %}">
+      <i class="fa fa-archive"></i> Projects
+    </a>
+  </li>
+  <li class="active">{{ project.name }}</li>
 </ol>
 {% endblock breadcrumbs %}
 
 {% block content %}
+<div class="row">
+  <div class="col-md-12">
+    <a href="{% url "project_detail" project.pk %}" class="btn btn-primary">
+      <i class="fa fa-ticket"></i> View Open Tickets
+    </a>
+  </div>
+</div>
+<br>
+<div class="box box-solid box-purple">
+  <div class="box-header with-border">
+    <h3 class="box-title">Closed Tickets</h3>
+  </div>
+  <div class="box-body">
+    {% include "partials/_ticket_table.html" with tickets=project.closed_tickets %}
+  </div>
+</div>
 {% endblock content %}
