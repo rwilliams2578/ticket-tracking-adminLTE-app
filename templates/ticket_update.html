@@ -1,23 +1,55 @@
 {% extends "adminlte2/base.html" %}
+{% load adminlte_tags %}
 
 {% block title %}
+Tickets - Update
 {% endblock title %}
 
 {% block page_name %}
+Update Ticket
 {% endblock page_name %}
 
 {% block page_description %}
+Update an existing ticket for project {{ project }}
 {% endblock page_description %}
 
 {% block breadcrumbs %}
 <ol class="breadcrumb">
   <li>
     <a href="{% url "project_list" %}">
-      <i class"fa fa-dashboard"></i> Home
+      <i class="fa fa-dashboard"></i> Home
     </a>
   </li>
+  <li>
+    <a href="{% url "project_list" %}">
+      <i class="fa fa-archive"></i> Projects
+    </a>
+  </li>
+  <li>
+    <a href="{% url "project_detail" project.pk %}">
+    {{ project.name }}
+  </a>
+  </li>
+  <li>
+    <a href="{% url "project_detail" project.pk %}">
+      <i class="fa fa-ticket"></i> Tickets
+   </a>
+  </li>
+  <li class="active">{{ ticket.name }}</li>
 </ol>
 {% endblock breadcrumbs %}
 
 {% block content %}
+<div class="box box-solid box-primary">
+  <div class="box-header with-border">
+    <h3 class="box-title">Update Ticket</h3>
+  </div>
+  <div class="box-body">
+    <form action="" method="post">
+      {% csrf_token %}
+      {% render_form form %}
+      <button type="submit" class="btn btn-success">Save</button>
+    </form>
+  </div>
+</div>
 {% endblock content %}

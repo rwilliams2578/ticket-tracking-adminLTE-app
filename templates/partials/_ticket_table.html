@@ -10,7 +10,7 @@
       <tr>
         <td>{{ ticket.name }}</td>
         <td>{{ ticket.assigned_to.username }}</td>
-        <td>{{ ticket.complete_by }}</td>
+        <td>{{ ticket.completed_by }}</td>
         <td class="text-right">
           <a href="{% url "ticket_update" project.pk ticket.pk %}" class="btn btn-primary">
             <i class="fa fa-pencil"></i> Update

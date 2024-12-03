@@ -67,7 +67,7 @@ class TicketCreateView(CreateView):
         "description",
         "priority",
         "assigned_to",
-        "complete_by",
+        "completed_by",
         "completed",
     ]
 
@@ -108,7 +108,7 @@ class TicketEditView(UpdateView):
         "description",
         "priority",
         "assigned_to",
-        "complete_by",
+        "completed_by",
         "completed",
     ]
 
