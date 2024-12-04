@@ -15,6 +15,7 @@ class ProjectListView(ListView):
 class ProjectDetailView(DetailView):
     """Show open tickets for project"""
 
+    model = Project
     template_name = "project_detail.html"
 
 

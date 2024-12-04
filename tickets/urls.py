@@ -24,7 +24,7 @@ urlpatterns = [
     path(
         "<int:pk>/closed",
         ProjectDetailClosedView.as_view(),
-        name="project_detail_close",
+        name="project_detail_closed",
     ),
     path("<int:pk>/", ProjectDetailView.as_view(), name="project_detail"),
     path("new/", ProjectCreateView.as_view(), name="project_create"),

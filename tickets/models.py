@@ -54,7 +54,7 @@ class Project(models.Model):
 class Ticket(models.Model):
     """Represents a ticket for a project"""
 
-    Project = models.ForeignKey(
+    project = models.ForeignKey(
         Project,
         on_delete=models.CASCADE,
         related_name="tickets",
